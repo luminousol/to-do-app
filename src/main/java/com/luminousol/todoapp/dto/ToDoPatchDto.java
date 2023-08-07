@@ -10,12 +10,12 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class ToDoPatchDto {
 
-    private long toDoId;    // patch 는 todoId가 필요
+    private long id;    // patch 는 todoId가 필요
 
     @NotBlank
-    private String toDoTitle;
+    private String title;
 
     private int toDoOrder;
 
-    private boolean toDoCompleted;
+    private boolean completed;
 }

@@ -6,11 +6,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class ToDoResponseDto {
-    private long toDoId;
+    private long id;
 
-    private String toDoTitle;
+    private String title;
 
     private int toDoOrder;
 
-    private boolean toDoCompleted;
+    private boolean completed;
 }

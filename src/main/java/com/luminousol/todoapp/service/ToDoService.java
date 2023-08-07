@@ -1,11 +1,8 @@
 package com.luminousol.todoapp.service;
 
-import com.luminousol.todoapp.dto.ToDoResponseDto;
+
 import com.luminousol.todoapp.entity.ToDo;
 import com.luminousol.todoapp.repository.ToDoRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,14 +28,14 @@ public class ToDoService {
     }
 
     public ToDo updateToDo(ToDo toDo) {
-        ToDo readToDo = readVerifiedToDo(toDo.getToDoId());
+        ToDo readToDo = readVerifiedToDo(toDo.getId());
 
-        Optional.ofNullable(toDo.getToDoTitle())
-                .ifPresent(title -> readToDo.setToDoTitle(title));
+        Optional.ofNullable(toDo.getTitle())
+                .ifPresent(readToDo::setTitle);
         Optional.ofNullable(toDo.getToDoOrder())
-                .ifPresent(order -> readToDo.setToDoOrder(order));
-        Optional.ofNullable(toDo.isToDoCompleted())
-                .ifPresent(completed -> readToDo.setToDoCompleted(completed));
+                .ifPresent(readToDo::setToDoOrder);
+        Optional.ofNullable(toDo.isCompleted())
+                .ifPresent(readToDo::setCompleted);
 
         ToDo updatedToDo = toDoRepository.save(readToDo);
 

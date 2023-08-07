@@ -11,9 +11,9 @@ import javax.validation.constraints.NotBlank;
 public class ToDoPostDto {
 
     @NotBlank
-    private String toDoTitle;
+    private String title;
 
     private int toDoOrder;
 
-    private boolean toDoCompleted;
+    private boolean completed;
 }
